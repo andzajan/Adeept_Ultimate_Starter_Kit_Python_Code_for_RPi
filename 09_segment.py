@@ -33,8 +33,10 @@ def setup():
 		GPIO.output(pin, GPIO.LOW)
 
 def writeOneByte(val, pins):
-	bin_val =str(bin(val))[:2].zfill(8)
+	bin_val =str(bin(val))[2:].zfill(8)
+	print (bin_val)
 	for pin in range(0,8):
+		print (pin, int(bin_val[pin]))
 		GPIO.output (pins[pin], int(bin_val[pin]))
 #	GPIO.output(11, val & (0x01 << 0))  
 #	GPIO.output(12, val & (0x01 << 1))  
